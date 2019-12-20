@@ -20,5 +20,4 @@ public class ResourceExceptionHandler {
 				e.getMessage(), request.getRequestURI());
 		return ResponseEntity.status(status).body(err);
 	}
-
 }
