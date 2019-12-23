@@ -1,12 +1,15 @@
 package com.malands.SpringbootMongodb.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.malands.SpringbootMongodb.DTO.AuthorDTO;
+import com.malands.SpringbootMongodb.DTO.CommentDTO;
 
 @Document
 public class Post implements Serializable {
@@ -18,6 +21,8 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	public AuthorDTO author;
+	
+	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {} 
 	
@@ -68,6 +73,14 @@ public class Post implements Serializable {
 
 	public void setAuthorDTO(AuthorDTO author) {
 		this.author = author;
+	}
+
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+
+	public void setComment(List<CommentDTO> comments) {
+		this.comments = comments;
 	}
 
 	@Override
